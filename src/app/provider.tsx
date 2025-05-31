@@ -4,21 +4,20 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
-const theme = createTheme({
-  colorSchemes: {
-    dark: true,
-  },
-  palette: {
-    mode: 'light',
-  },
-  components: {},
-});
+const getTheme = () =>
+  createTheme({
+    palette: {
+      mode: 'light',
+    },
+  });
 
 const Provider = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
+  const theme = getTheme();
+
   return (
     <>
       <AppRouterCacheProvider>
